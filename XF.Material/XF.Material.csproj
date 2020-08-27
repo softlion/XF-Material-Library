@@ -19,6 +19,39 @@
     <DisableFastUpToDateCheck>true</DisableFastUpToDateCheck>
   </PropertyGroup>
 
+<PropertyGroup>
+    <!--  nuget configurable properties -->
+    <Version>1.6.7</Version>
+    <VersionSuffix>-pre1</VersionSuffix>
+    <DefineConstants>$(DefineConstants);</DefineConstants>
+  </PropertyGroup>
+
+  <PropertyGroup>
+    <!--  nuget properties -->
+    <PackageId>XF.Material</PackageId>
+    <Summary>TODO</Summary>
+    <PackageTags>TODO</PackageTags>
+    <Title>TODO</Title>
+    <Description>TODO</Description>
+    <Product>$(AssemblyName) ($(TargetFramework))</Product>
+    <PackageVersion>$(Version)$(VersionSuffix)</PackageVersion>
+    <Authors>Benjamin Mayrargue</Authors>
+    <Owners>Benjamin Mayrargue</Owners>
+    <Copyright>Benjamin Mayrargue</Copyright>
+    <NeutralLanguage>en</NeutralLanguage>
+    <RepositoryUrl>https://github.com/softlion/XF-Material-Library</RepositoryUrl>
+    <UseFullSemVerForNuGet>false</UseFullSemVerForNuGet>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <PackageProjectUrl>https://github.com/softlion/XF-Material-Library</PackageProjectUrl>
+    <PackageReleaseNotes>
+      1.6.7-pre1
+      includes PRs #356, #357
+      includes this nuget configuration
+    </PackageReleaseNotes>
+    <Company />
+  </PropertyGroup>
+
   <PropertyGroup Condition="$(TargetFramework.StartsWith('uap')) And '$(OS)' == 'Windows_NT'">
     <GenerateLibraryLayout>true</GenerateLibraryLayout>
   </PropertyGroup>
