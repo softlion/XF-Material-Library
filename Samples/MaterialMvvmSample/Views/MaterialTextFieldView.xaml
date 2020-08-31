@@ -21,8 +21,13 @@
                                         IsTextAllCaps="True"
                                         IsAutoCapitalizationEnabled="true" />
 
-            <material:MaterialTextField Placeholder="With Icon" Style="{StaticResource GreenField}"
-                                        LeadingIcon="icon_plus"/>
+            <StackLayout Orientation="Horizontal">
+                <material:MaterialTextField Placeholder="With Icon"
+                                            LeadingIcon="icon_plus"
+                                            Style="{StaticResource GreenField}"
+                                            HorizontalOptions="FillAndExpand" />
+                <material:MaterialButton Text="OK" HorizontalOptions="Start" />
+            </StackLayout>
 
             <material:MaterialTextField Placeholder="Choices"
                                         InputType="Choice"
