@@ -776,26 +776,20 @@ namespace XF.Material.Forms.UI
 
                 Device.BeginInvokeOnMainThread(() =>
                 {
-                    var anim = new Animation();
 
                     if (FloatingPlaceholderEnabled)
                     {
-                        anim.Add(0.0, AnimationDuration, new Animation(v => placeholder.FontSize = v, entry.FontSize, placeholderEndFont, _animationCurve));
-                        anim.Add(0.0, AnimationDuration, new Animation(v => placeholder.TranslationY = v, placeholder.TranslationY, placeholderEndY, _animationCurve, () =>
-                        {
-                            placeholder.TextColor = HasError ? ErrorColor : FloatingPlaceholderColor;
-                            entry.Opacity = 1;
-                        }));
+                        placeholder.TranslationY = placeholderEndY;
+                        placeholder.TextColor = HasError ? ErrorColor : FloatingPlaceholderColor;
+                        entry.Opacity = 1;
                     }
 
                     if (ShouldAnimateUnderline)
                     {
                         underline.Color = HasError ? ErrorColor : TintColor;
                         underline.HeightRequest = 1;
-                        anim.Add(0.0, AnimationDuration, new Animation(v => underline.WidthRequest = v, 0, Width, _animationCurve, () => underline.HorizontalOptions = LayoutOptions.FillAndExpand));
+                        underline.HorizontalOptions = LayoutOptions.FillAndExpand;
                     }
-
-                    anim.Commit(this, "Anim2", rate: 2, length: (uint)(AnimationDuration * 1000), easing: _animationCurve);
                 });
 
                 entry.Opacity = 1;
@@ -933,9 +927,17 @@ namespace XF.Material.Forms.UI
 
         private void Entry_Focused(object sender, FocusEventArgs e)
         {
-            FocusCommand?.Execute(entry.IsFocused);
-            Focused?.Invoke(this, e);
-            UpdateCounter();
+            if (InputType == MaterialTextFieldInputType.Choice || InputType == MaterialTextFieldInputType.SingleImmediateChoice
+                                                               || InputType == MaterialTextFieldInputType.CommandChoice)
+            {
+                ((View) sender).Unfocus();
+            }
+            else
+            {
+                FocusCommand?.Execute(entry.IsFocused);
+                Focused?.Invoke(this, e);
+                UpdateCounter();
+            }
         }
 
         private void Entry_PropertyChanged(object sender, System.ComponentModel.PropertyChangedEventArgs e)
@@ -1023,7 +1025,7 @@ namespace XF.Material.Forms.UI
                     if (propInfo != null)
                     { 
                         var propValue = propInfo.GetValue(item);
-                        choice =propValue.ToString();
+                        choice =propValue?.ToString();
                     }
                 }
 
