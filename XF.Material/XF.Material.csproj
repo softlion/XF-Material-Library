@@ -21,8 +21,8 @@
 
 <PropertyGroup>
     <!--  nuget configurable properties -->
-    <Version>1.6.7</Version>
-    <VersionSuffix>-preB</VersionSuffix>
+    <Version>1.6.9</Version>
+    <VersionSuffix>-pre1</VersionSuffix>
     <DefineConstants>$(DefineConstants);</DefineConstants>
   </PropertyGroup>
 
