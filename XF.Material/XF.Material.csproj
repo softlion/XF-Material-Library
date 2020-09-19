@@ -21,8 +21,8 @@
 
 <PropertyGroup>
     <!--  nuget configurable properties -->
-    <Version>1.6.9</Version>
-    <VersionSuffix>-pre3</VersionSuffix>
+    <Version>1.7.0</Version>
+    <VersionSuffix>-pre1</VersionSuffix>
     <DefineConstants>$(DefineConstants);</DefineConstants>
   </PropertyGroup>
 
@@ -45,6 +45,9 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/softlion/XF-Material-Library</PackageProjectUrl>
     <PackageReleaseNotes>
+      1.7.0-pre1
+      fixs for images
+
       1.6.7-pre8
       fix MaterialTextField background not set on startup
       1.6.7-pre6
