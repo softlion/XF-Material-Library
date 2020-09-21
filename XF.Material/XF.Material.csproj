@@ -22,7 +22,7 @@
 <PropertyGroup>
     <!--  nuget configurable properties -->
     <Version>1.8.0</Version>
-    <VersionSuffix>-pre2</VersionSuffix>
+    <VersionSuffix>-pre4</VersionSuffix>
     <DefineConstants>$(DefineConstants);</DefineConstants>
   </PropertyGroup>
 
@@ -45,6 +45,8 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/softlion/XF-Material-Library</PackageProjectUrl>
     <PackageReleaseNotes>
+      1.8.0-pre4
+      correct button width on Android
       1.8.0-pre2
       styles apply correctly to buttons
       refix startup
