@@ -57,9 +57,9 @@
                                          OnPrimary="#FFFFFF"
                                          OnSecondary="#FFFFFF"
                                          OnSurface="#000000"
-                                         Primary="#6250EE"
-                                         PrimaryVariant="#6280EE"
-                                         Secondary="#00377b"
+                                         Primary="#6200EE"
+                                         PrimaryVariant="#6200EE"
+                                         Secondary="#00407b"
                                          Surface="#FFFFFF" />
 
         <!-- Does not support DynamicResource (why?) -->
