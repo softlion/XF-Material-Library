@@ -123,7 +123,6 @@ namespace XF.Material.iOS.Renderers
                 case nameof(MaterialButton.Text):
                 case nameof(MaterialButton.TextColor):
                 case nameof(MaterialButton.AllCaps):
-                case nameof(MaterialButton.LetterSpacing):
                     UpdateText();
                     break;
             }
@@ -283,38 +282,38 @@ namespace XF.Material.iOS.Renderers
                 var control = Control;
                 control.TintColor = _materialButton.TextColor.ToUIColor();
 
-                if (Element.ContentLayout.Position == Button.ButtonContentLayout.ImagePosition.Right)
-                {
-                    //XF does not compute correctly the text's width
-                    var imageSize = control.CurrentImage.Size;
+                //if (Element.ContentLayout.Position == Button.ButtonContentLayout.ImagePosition.Right)
+                //{
+                //    //XF does not compute correctly the text's width
+                //    var imageSize = control.CurrentImage.Size;
 
-                    if (imageSize.Width > 0 && imageSize.Height > 0)
-                    {
-                        var insets = Control.ImageEdgeInsets;
-                        var margin = (nfloat)Element.ContentLayout.Spacing;
-                        var deltaX = Control.CurrentAttributedTitle.Size.Width + Control.TitleEdgeInsets.Left + Control.TitleEdgeInsets.Right + margin;
-                        Control.ImageEdgeInsets = new UIEdgeInsets(insets.Top, deltaX, insets.Bottom, -deltaX);
-                    }
-                }
+                //    if (imageSize.Width > 0 && imageSize.Height > 0)
+                //    {
+                //        var insets = Control.ImageEdgeInsets;
+                //        var margin = (nfloat)Element.ContentLayout.Spacing;
+                //        var deltaX = Control.CurrentAttributedTitle.Size.Width + Control.TitleEdgeInsets.Left + Control.TitleEdgeInsets.Right + margin;
+                //        Control.ImageEdgeInsets = new UIEdgeInsets(insets.Top, deltaX, insets.Bottom, -deltaX);
+                //    }
+                //}
             }
         }
 
-        /// <summary>
-        /// Computes the intrinsic content size
-        /// </summary>
-        /// <param name="size"></param>
-        /// <remarks>
-        /// Because LetterSpacing is non standard, the width is incorrectly computed,
-        /// leading to the button's width being too small.
-        /// Adding 2x14 seems to fit all situations.
-        /// </remarks>
-        public override CGSize SizeThatFits(CGSize size)
-        {
-            size = base.SizeThatFits(size);
-            if(size.Width > 0) //A negative value means "whatever"
-                size.Width += 28;
-            return size;
-        }
+        ///// <summary>
+        ///// Computes the intrinsic content size
+        ///// </summary>
+        ///// <param name="size"></param>
+        ///// <remarks>
+        ///// Because CharacterSpacing is non standard, the width is incorrectly computed,
+        ///// leading to the button's width being too small.
+        ///// Adding 2x14 seems to fit all situations.
+        ///// </remarks>
+        //public override CGSize SizeThatFits(CGSize size)
+        //{
+        //    size = base.SizeThatFits(size);
+        //    if(size.Width > 0) //A negative value means "whatever"
+        //        size.Width += 28;
+        //    return size;
+        //}
 
         private Task<bool> UpdateBackgroundColor()
         {
@@ -455,7 +454,7 @@ namespace XF.Material.iOS.Renderers
             if (_materialButton.AllCaps)
                 text = text.ToUpper();
 
-            var title = new NSMutableAttributedString(text, kerning: (float)_materialButton.LetterSpacing, foregroundColor: _materialButton.TextColor.ToUIColor());
+            var title = new NSMutableAttributedString(text, kerning: (float)_materialButton.CharacterSpacing, foregroundColor: _materialButton.TextColor.ToUIColor());
             Control.SetAttributedTitle(title, UIControlState.Normal);
             Control.SetAttributedTitle(title, UIControlState.Highlighted);
             Control.SetAttributedTitle(title, UIControlState.Disabled);

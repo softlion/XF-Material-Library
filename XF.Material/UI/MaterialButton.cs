@@ -20,8 +20,8 @@ namespace XF.Material.Forms.UI
         public static readonly BindableProperty ButtonTypeProperty = BindableProperty.Create(nameof(ButtonType), typeof(MaterialButtonType), typeof(MaterialButton), MaterialButtonType.Elevated);
         public static readonly BindableProperty DisabledBackgroundColorProperty = BindableProperty.Create(nameof(DisabledBackgroundColor), typeof(Color), typeof(MaterialButton), default(Color));
         public static readonly BindableProperty PressedBackgroundColorProperty = BindableProperty.Create(nameof(PressedBackgroundColor), typeof(Color), typeof(MaterialButton), default(Color));
-        public static readonly BindableProperty LetterSpacingProperty = BindableProperty.Create(nameof(LetterSpacing), typeof(double), typeof(MaterialButton), 1.25);
         public static readonly BindableProperty ElevationProperty = BindableProperty.Create(nameof(Elevation), typeof(MaterialElevation), typeof(MaterialButton), new MaterialElevation(2, 8));
+
 
         public MaterialButton()
         {
@@ -32,9 +32,9 @@ namespace XF.Material.Forms.UI
             SetDynamicResource(BackgroundColorProperty, MaterialConstants.Color.SECONDARY);
             SetDynamicResource(TextColorProperty, MaterialConstants.Color.ON_SECONDARY);
             SetDynamicResource(HeightRequestProperty, MaterialConstants.MATERIAL_BUTTON_HEIGHT);
+            CharacterSpacing = 2.25;
         }
 
-        #region Dependency properties
         public MaterialElevation Elevation
         {
             get => (MaterialElevation)GetValue(ElevationProperty);
@@ -50,14 +50,6 @@ namespace XF.Material.Forms.UI
             set => SetValue(AllCapsProperty, value);
         }
 
-        /// <summary>
-        /// Gets or sets the letter spacing of this button's text.
-        /// </summary>
-        public double LetterSpacing
-        {
-            get => (double)GetValue(LetterSpacingProperty);
-            set => SetValue(LetterSpacingProperty, value);
-        }
 
         /// <summary>
         /// Gets or sets the type of this button. The default value is <see cref="MaterialButtonType.Elevated"/>
@@ -79,7 +71,6 @@ namespace XF.Material.Forms.UI
             get => (Color)GetValue(PressedBackgroundColorProperty);
             set => SetValue(PressedBackgroundColorProperty, value);
         }
-        #endregion
 
         protected override void OnPropertyChanged([CallerMemberName] string propertyName = null)
         {
