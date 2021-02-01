@@ -22,7 +22,7 @@
   <PropertyGroup>
     <!--  nuget configurable properties -->
     <Version>1.8.0</Version>
-    <VersionSuffix>-pre8</VersionSuffix>
+    <VersionSuffix>-pre9-custom4</VersionSuffix>
     <DefineConstants>$(DefineConstants);</DefineConstants>
   </PropertyGroup>
 
@@ -45,6 +45,11 @@
     <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
     <PackageProjectUrl>https://github.com/softlion/XF-Material-Library</PackageProjectUrl>
     <PackageReleaseNotes>
+      1.8.0-pre9-custom2
+      includes the latest version of "fix-ios14-datepicker" branch
+      1.8.0-pre9-custom1
+      includes the "fix-ios14-datepicker" branch
+      includes the "fix-sizing-andother-smallissues" branch
       1.8.0-pre8
       upgrade lottie
       1.8.0-pre4
